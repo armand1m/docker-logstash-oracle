@@ -1,4 +1,4 @@
-FROM logstash
+FROM docker.elastic.co/logstash/logstash 
 RUN logstash-plugin install logstash-input-jdbc
 COPY ./jars /logstash/jars
 
