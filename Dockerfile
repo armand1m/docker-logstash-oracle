@@ -1,4 +1,6 @@
-FROM docker.elastic.co/logstash/logstash-oss:6.3.0 
+FROM docker.elastic.co/logstash/logstash-oss:6.3.0
+
+RUN yum install -y unzip
 
 RUN logstash-plugin install logstash-filter-jdbc_streaming
 RUN logstash-plugin install logstash-filter-aggregate
