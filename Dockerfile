@@ -1,5 +1,7 @@
 FROM docker.elastic.co/logstash/logstash-oss:6.3.0
 
+USER root
+
 RUN yum install -y unzip
 
 RUN logstash-plugin install logstash-filter-jdbc_streaming
@@ -23,3 +25,5 @@ ENV OCI_LIB_DIR="/opt/oracle/instantclient"
 ENV OCI_INCLUDE_DIR="/opt/oracle/instantclient/sdk/include"
 
 RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig
+
+USER logstash
